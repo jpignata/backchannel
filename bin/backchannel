@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+$: << "./lib"
+
+if handle = ARGV[0]
+  trap(:INT) { abort }
+  require "backchannel"
+  Backchannel.start(handle)
+else
+  abort "Usage: bcc <HANDLE>"
+end
+
