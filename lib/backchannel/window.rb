@@ -10,6 +10,8 @@ class Window
 
   def start
     init_screen
+    start_color
+    init_pair(COLOR_WHITE, COLOR_BLACK, COLOR_WHITE)
     redraw
 
     @client.add_message_listener(self)
@@ -44,7 +46,9 @@ class Window
 
   def draw_text_field
     setpos(divider_line, 0)
-    addstr("-" * cols)
+    attron(color_pair(COLOR_WHITE) | A_NORMAL) do
+      addstr(" [backchannel]" + " " * cols)
+    end
 
     cursor_to_input_line
     clrtoeol
