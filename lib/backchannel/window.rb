@@ -12,6 +12,7 @@ class Window
     init_screen
     start_color
     init_pair(COLOR_WHITE, COLOR_BLACK, COLOR_WHITE)
+    use_default_colors
     redraw
 
     @client.add_message_listener(self)
