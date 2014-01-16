@@ -57,7 +57,7 @@ class Client
     @socket ||= UDPSocket.open.tap do |socket|
       socket.setsockopt(Socket::IPPROTO_IP, Socket::IP_ADD_MEMBERSHIP, bind_address)
       socket.setsockopt(Socket::IPPROTO_IP, Socket::IP_MULTICAST_TTL, 1)
-      socket.setsockopt(Socket::SOL_SOCKET, Socket::SO_REUSEPORT, 1)
+      socket.setsockopt(Socket::SOL_SOCKET, Socket::SO_REUSEADDR, 1)
     end
   end
 
